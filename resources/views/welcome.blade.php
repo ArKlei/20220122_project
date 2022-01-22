@@ -23,7 +23,7 @@
 <style>
 #mySidenav a {
   position: absolute;
-  left: -140px;
+  left: -220px;
   transition: 0.3s;
   padding: 15px;
   width: 300px;
@@ -37,43 +37,52 @@
   left: 0;
 }
 
-#client {
+#student {
   top: 20px;
   background-color: #04AA6D;
 }
 
-#create {
+#create_student {
   top: 80px;
   background-color: #2196F3;
 }
 
-#company {
+#attendance_group {
   top: 140px;
   background-color: #f44336;
 }
 
-#create_company {
+#create_attendance_group {
   top: 200px;
-  background-color: #555
+  background-color: #04AA6D;
+}
+
+#school {
+  top: 260px;
+  background-color: #2196F3;
+}
+
+#create_school {
+  top: 320px;
+  background-color: #f44336;
 }
 </style>
 </head>
 <body>
 
 <div id="mySidenav" class="sidenav">
-  <a href="<!--{{route('model1.index')}}-->" id="model1">Model1</a>
-  <a href="<!--{{route('model1.create')}}-->" id="create_model1">Add model1</a>
-  <a href="<!--{{route('model1.edit')}}-->" id="edit_model1">Edit model1</a>
-  <a href="<!--{{route('model2.index')}}-->" id="model2">Model2</a>
-  <a href="<!--{{route('model2.create')}}-->" id="create_model2">Add model2</a>
-  <a href="<!--{{route('model2.edit')}}-->" id="edit_model2">Edit model2</a>
-  <a href="<!--{{route('model3.index')}}-->" id="model3">Model3</a>
-  <a href="<!--{{route('model3.create')}}-->" id="create_model3">Add model3</a>
-  <a href="<!--{{route('model3.edit')}}-->" id="edit_model3">Edit model3</a>
+<a href="{{route('student.index')}}" id="student">Students</a>
+  <a href="{{route('student.create')}}" id="create_student">Add student</a>
+  <a href="{{route('attendance_group.index')}}" id="attendance_group">Attendance Groups</a>
+  <a href="{{route('attendance_group.create')}}" id="create_attendance_group">Add Attendance Group</a>
+  <a href="{{route('school.index')}}" id="school">School</a>
+  <a href="{{route('school.create')}}" id="create_school">Add School</a>
 </div>
 
     <div class="container">
-        <div style="text-align:center; font-size:400px; color:gold">BIT Student IS</div>
+        <p><div style="text-align:center; font-size:150px; color:orange">BIT</div>
+        <p>
+          <div style="text-align:center; font-size:200px; color:gold">Student IS</div>
         <p>
         <div style="text-align:center; font-size:50px; color:platinum">Made by BIT alumni</div>
         </div>
