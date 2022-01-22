@@ -15,9 +15,20 @@ class CreateSchoolsTable extends Migration
     {
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name');
+            $table->longText('description');
+            $table->string('place');
+            $table->unsignedBigInteger('phone'); 
+
             $table->timestamps();
         });
     }
+    
+    //name(string)
+    //description(longText)
+    //place(string)
+    //phone(bigInt)
 
     /**
      * Reverse the migrations.
