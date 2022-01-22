@@ -55,17 +55,17 @@ Route::get('/', function () {
   Route::prefix('schools')->group(function() {
 
         //Index
-        Route::get('', 'App\Http\Controllers\TypeController@index')->name('school.index');
+        Route::get('', 'App\Http\Controllers\SchoolController@index')->name('school.index');
         //Create
-        Route::get('create', 'App\Http\Controllers\TypeController@create')->name('school.create');
-        Route::post('store', 'App\Http\Controllers\TypeController@store' )->name('school.store');
+        Route::get('create', 'App\Http\Controllers\SchoolController@create')->name('school.create');
+        Route::post('store', 'App\Http\Controllers\SchoolController@store' )->name('school.store');
         //Edit form, id
-        Route::get('edit/{school}', 'App\Http\Controllers\TypeController@edit')->name('school.edit');
-        Route::post('update/{school}', 'App\Http\Controllers\TypeController@update')->name('school.update');
+        Route::get('edit/{school}', 'App\Http\Controllers\SchoolController@edit')->name('school.edit');
+        Route::post('update/{school}', 'App\Http\Controllers\SchoolController@update')->name('school.update');
         //Delete
-        Route::post('destroy/{school}', 'App\Http\Controllers\TypeController@destroy' )->name('school.destroy');
+        Route::post('destroy/{school}', 'App\Http\Controllers\SchoolController@destroy' )->name('school.destroy');
         //Show
-        Route::get('show/{school}', 'App\Http\Controllers\TypeController@show')->name('school.show');
+        Route::get('show/{school}', 'App\Http\Controllers\SchoolController@show')->name('school.show');
   
   });
 

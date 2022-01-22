@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Second Laravel project 20220122</title>
-        <!--
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show Type</title>
+    <!--
   
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -78,14 +78,39 @@
   <a href="{{route('school.index')}}" id="school">School</a>
   <a href="{{route('school.create')}}" id="create_school">Add School</a>
 </div>
-
     <div class="container">
+        <h2> {{$type->name}}  </h2>
+            <p>Id : {{$type->id}}</p>
+        <p>Name : {{$type->name}}</p>
+        <p>Short Name : {{$type->short_name}}</p>
+        <p>Description : {{$type->description}}</p>
 
-        <p><div class="text-center"><img src="https://bit.lt/wp-content/themes/bit/assets/img/_bit-intro.jpg" class="rounded" style="width:500px; height:auto"></div>
-        <p>
-          <div class="text-center text-dark" style="font-size:100px">BIT Student IS</div>
-        <p>
-        <div class="text-center text-dark" style="font-size:50px">Made by BIT alumni</div>
-        </div>
-    </body>
+        {{-- $company->companyClients->name xxxx ???? --}}
+        @if(count($type->typeCompanies) == 0) 
+            <p>There is no companies </p>
+        @else 
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            @foreach ($type->typeCompanies as $company)
+                <tr>
+                    <td>{{$company->id}}</td>
+                    <td>{{$company->name}}</td>
+                    <td>{{$company->description}}</td>
+                </tr>
+            @endforeach
+            </table>
+        @endif    
+
+        <form method="post" action='{{route('type.destroy', [$type])}}''>
+            @csrf
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+        <a class="btn btn-secondary" href="{{route('type.index')}}">Back</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
 </html>

@@ -72,9 +72,9 @@
 
             <input class="form-control" type='text' name="attendance_group_name" placeholder="Attendance Group Name"/><p>
             <p>
-            <input  class="form-control" type='text' name="attendance_group_description" placeholder="Attendance Group"/>
+            <input  class="form-control" type='text' name="attendance_group_description" placeholder="Attendance Group Description"/>
             <p>
-            <input  class="form-control" type='text' name="attendance_group_difficulty" placeholder="Attendance Group description"/>
+            <input  class="form-control" type='text' name="attendance_group_difficulty" placeholder="Attendance Group Difficulty (junior, mid, senior)"/>
             <p>
             <input  class="form-control" type='number' name="attendance_group_school_id" placeholder="Attendance Group School ID"/>
             @csrf

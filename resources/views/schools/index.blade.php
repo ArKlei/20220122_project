@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Second Laravel project 20220122</title>
-        <!--
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Schools</title>
+    <!--
   
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -80,12 +80,58 @@
 </div>
 
     <div class="container">
+    <h1>Schools</h1>
 
-        <p><div class="text-center"><img src="https://bit.lt/wp-content/themes/bit/assets/img/_bit-intro.jpg" class="rounded" style="width:500px; height:auto"></div>
-        <p>
-          <div class="text-center text-dark" style="font-size:100px">BIT Student IS</div>
-        <p>
-        <div class="text-center text-dark" style="font-size:50px">Made by BIT alumni</div>
-        </div>
-    </body>
+
+@if (session()->has('error_message'))
+        <div class="alert alert-danger">
+            {{session()->get('error_message')}}
+        </div>   
+@endif
+
+@if (session()->has('success_message'))
+        <div class="alert alert-success">
+            {{session()->get('success_message')}}
+        </div>   
+@endif
+
+@if (count($schools) == 0)
+    <p>There is no school</p>
+@endif
+
+{{-- create forma - mums reikia nuorodos ar mygtuko --}}
+<a class="btn btn-primary" href="{{route('school.create')}}">Create new school</a>
+<table class="table table-striped">
+<tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Difficulty (junior, mid, senior)</th>
+    <th>Total Attendance Groups</th>
+    <th>Actions</th>
+</tr>
+
+
+@foreach ($schools as $school)
+    <tr>
+        <td>{{$school->id}}</td>
+        <td>{{$school->name}}</td>
+        <td>{{$school->description}}</td>
+        <td>{{$school->difficulty}}</td>
+        <td>{{count($school->schoolAttendanceGroups)}}</td>
+        <td>
+            <a class="btn btn-primary" href="{{route('school.edit', [$school])}}">Edit</a>
+            <a class="btn btn-secondary" href="{{route('school.show', [$school])}}">Show</a>
+
+            <form method="post" action='{{route('school.destroy', [$school])}}''>
+                @csrf
+                <button class="btn btn-danger" school="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+@endforeach
+</table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
 </html>

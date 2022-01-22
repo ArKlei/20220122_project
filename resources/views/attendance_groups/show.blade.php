@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Show clients's company by ID</title>
+    <title>Show Student's Attendance Groups by ID</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <style>
@@ -66,31 +66,32 @@
   <a href="{{route('school.create')}}" id="create_school">Add School</a>
 </div>
     <div class="container">
-        <p><h1 style="text-align:center; font-size:50px; color:gold"> {{$company->type}} {{$company->name}}  </h1><p>
-        <p>Id : {{$company->id}}</p>
-        <p>Name : {{$company->name}}</p>
-        <p>Description : {{$company->description}}</p>
+        <p><h1 style="text-align:center; font-size:50px; color:gold"> {{$attendance_group->school_id}} {{$attendance_group->name}}  </h1><p>
+        <p>Id : {{$attendance_group->id}}</p>
+        <p>Name : {{$attendance_group->name}}</p>
+        <p>Description : {{$attendance_group->description}}</p>
+        <p>Difficulty : {{$attendance_group->difficulty}}</p>
         <p>
 
-        @if(count($company->companyClients) == 0)
-          <p>No Clients in this Company</p>
+        @if(count($attendance_group->attendance_groupStudents) == 0)
+          <p>No Studentss in this Attendance Group</p>
         @else
         <table class="table table-stripped">
           <tr>
             <td>ID</td>
             <td>Name</td>
-            <td>surname</td>
+            <td>Surname</td>
             <td>Image</td>
             <td>Action</td>
           </tr>
-          @foreach ($company->companyClients as $client)
+          @foreach ($attendance_group->attendance_groupStudents as $student)
           <tr>
-            <td>{{$client->id}}</td>
-            <td>{{$client->name}}</td>
-            <td>{{$client->surname}}</td>
-            <td><img src='{{$client->image_url}}' alt='{{$client->name}}' width="150" height="auto"/></td>
+            <td>{{$student->id}}</td>
+            <td>{{$student->name}}</td>
+            <td>{{$student->surname}}</td>
+            <td><img src='{{$student->image_url}}' alt='{{$student->name}}' width="150" height="auto"/></td>
             <td>
-                <form method="post" action='{{route('client.destroy',[$client])}}''>
+                <form method="post" action='{{route('student.destroy',[$student])}}''>
                 @csrf
                 <button class="btn btn-danger" type="submit">Delete</button>
             </form></td>
@@ -98,11 +99,11 @@
           @endforeach
         </table>
         @endif
-        <form method="post" action='{{route('company.destroy', [$company])}}'>
+        <form method="post" action='{{route('attendance_group.destroy', [$attendance_group])}}'>
             @csrf
-            <button class="btn btn-danger" type="submit">Delete company from database</button>
+            <button class="btn btn-danger" type="submit">Delete Attendance Group from database</button>
         </form><p>
-        <p><a class="btn btn-secondary" style="width:100px" href="{{route('company.index')}}">Back</a>
+        <p><a class="btn btn-secondary" style="width:100px" href="{{route('attendance_group.index')}}">Back</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
