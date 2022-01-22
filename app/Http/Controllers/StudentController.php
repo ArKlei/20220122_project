@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\AttendanceGroup;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 
-use App\Models\AttendanceGroup;
+use Illuminate\Http\Request;
+
 
 class StudentController extends Controller
 {
@@ -17,7 +19,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Student::all();
+        return view('students.index',['students' => $students]);
     }
 
     /**
@@ -27,7 +30,14 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $select_values = array();
+
+        for ($i = 1; $i < 10; $i++) {
+            $select_values[] = $i;
+        }
+        
+        return view('students.create',['select_values'=>$select_values]);
+
     }
 
     /**
@@ -36,9 +46,19 @@ class StudentController extends Controller
      * @param  \App\Http\Requests\StoreStudentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreStudentRequest $request)
+    public function store(Request $request)
     {
-        //
+        $student = new Student;
+
+        $student->name = $request->student_name;
+        $student->surname = $request->student_surname;
+        $student->school_id = $request->student_school_id;
+        $student->image_url = $request->student_image_url;
+        
+        $student->save();
+
+        return redirect()->route('student.index');
+        
     }
 
     /**
@@ -49,7 +69,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('students.show', ['student'=> $student]);
     }
 
     /**
@@ -59,8 +79,19 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Student $student)
-    {
-        //
+    {   
+        // $student = 1
+        // $student = {id: 1, name: ..., surname: ...}
+
+        $select_values = AttendanceGroup::all();
+
+        //$select_values = Array();
+        //for ($i = 1; $i < 10; $i++) {
+        //    $select_values[] = $i;
+        //}
+        
+        return view('students.edit',['student' => $student],['select_values'=>$select_values]);
+        
     }
 
     /**
@@ -70,19 +101,31 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateStudentRequest $request, Student $student)
+    public function update(Request $request, Student $student)
     {
-        //
+        //pasiimu is lauku, ir irasau i duomenu baze
+
+        $student->name = $request->student_name;
+        $student->surname = $request->student_surname;
+        $student->school_id = $request->student_school_id;
+        $student->image_url = $request->student_image_url;
+
+        $student->save();//UPDATE
+
+        return redirect()->route('student.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Student $student
      * @return \Illuminate\Http\Response
      */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+        return redirect()->route('student.index');
     }
 }
+
+//Client
