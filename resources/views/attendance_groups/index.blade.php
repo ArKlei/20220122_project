@@ -62,7 +62,7 @@
   <a href="{{route('student.create')}}" id="create_student">Add student</a>
   <a href="{{route('attendance_group.index')}}" id="attendance_group">Attendance Groups</a>
   <a href="{{route('attendance_group.create')}}" id="create_attendance_group">Add Attendance Group</a>
-  <a href="{{route('school.index')}}" id="school">School</a>
+  <a href="{{route('school.index')}}" id="school">Schools</a>
   <a href="{{route('school.create')}}" id="create_school">Add School</a>
 </div>
     <div class="container">

@@ -7,46 +7,63 @@
     <title>Edit student's data</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<style>
+    <style>
 #mySidenav a {
   position: absolute;
-  left: -140px;
+  left: -220px;
   transition: 0.3s;
   padding: 15px;
-  width: 200px;
+  width: 300px;
   text-decoration: none;
   font-size: 20px;
   color: white;
   border-radius: 0 5px 5px 0;
 }
+
 #mySidenav a:hover {
   left: 0;
 }
-#main {
+
+#student {
   top: 20px;
   background-color: #04AA6D;
 }
-#create {
+
+#create_student {
   top: 80px;
   background-color: #2196F3;
 }
-#company {
+
+#attendance_group {
   top: 140px;
   background-color: #f44336;
 }
-#create_company {
+
+#create_attendance_group {
   top: 200px;
-  background-color: #555
+  background-color: #04AA6D;
+}
+
+#school {
+  top: 260px;
+  background-color: #2196F3;
+}
+
+#create_school {
+  top: 320px;
+  background-color: #f44336;
 }
 </style>
 </head>
 <body>
 
 <div id="mySidenav" class="sidenav">
-  <a href="{{route('main')}}" id="main">Main</a>
-  <a href="{{route('client.create')}}" id="create">Add client</a>
-  <a href="{{route('company.index')}}" id="company">Companies</a>
-  <a href="{{route('company.create')}}" id="create_company">Add company</a>
+<a href="{{route('student.index')}}" id="student">Students</a>
+  <a href="{{route('student.create')}}" id="create_student">Add student</a>
+  <a href="{{route('attendance_group.index')}}" id="attendance_group">Attendance Groups</a>
+  <a href="{{route('attendance_group.create')}}" id="create_attendance_group">Add Attendance Group</a>
+  <a href="{{route('school.index')}}" id="school">Schools</a>
+  <a href="{{route('school.create')}}" id="create_school">Add School</a>
 </div>
     <div class="container">
     <p><h1 style="text-align:center; font-size:50px; color:gold">Edit client's data</h1><p>

@@ -19,7 +19,7 @@ class SchoolController extends Controller
     public function index()
     {
         $schools = School::all();
-        return view('school.index',['schools'=>$schools]);
+        return view('schools.index',['schools'=>$schools]);
     }
 
     /**
@@ -29,7 +29,7 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        return view('school.create');
+        return view('schools.create');
     }
 
     /**
@@ -61,7 +61,7 @@ class SchoolController extends Controller
      */
     public function show(School $school)
     {
-        return view('school.show', ['school' => $school]);
+        return view('schools.show', ['school' => $school]);
     }
 
     /**
@@ -72,7 +72,7 @@ class SchoolController extends Controller
      */
     public function edit(School $school)
     {
-        return view('school.edit', ['school' => $school]);
+        return view('schools.edit', ['school' => $school]);
     }
 
     /**

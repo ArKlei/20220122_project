@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create Type</title>
+    <title>Create School</title>
     <!--
   
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -75,31 +75,26 @@
   <a href="{{route('student.create')}}" id="create_student">Add student</a>
   <a href="{{route('attendance_group.index')}}" id="attendance_group">Attendance Groups</a>
   <a href="{{route('attendance_group.create')}}" id="create_attendance_group">Add Attendance Group</a>
-  <a href="{{route('school.index')}}" id="school">School</a>
+  <a href="{{route('school.index')}}" id="school">Schools</a>
   <a href="{{route('school.create')}}" id="create_school">Add School</a>
 </div>
     <div class="container">
-        <h1>Create Type</h1>
+        <h1>Create School</h1>
 
-        <form method='POST' action='{{route('type.store')}}' >
+        <form method='POST' action='{{route('school.store')}}' >
 
-            {{-- 
-             // ID
-            // name(string)
-            // type(string)
-            // description(string) --}}
-
-
-            <input class="form-control" type='text' name="type_name" value="Test" placeholder="Type Name"/>
-            <input  class="form-control" type='text' name="type_shortname" value="Test" placeholder="Type Short Name"/>
-            <input  class="form-control" type='text' name="type_description" value="Test"  placeholder="Type Description"/>
+            <input  class="form-control" type='text' name="school_name" placeholder="School Name"/>
+            <input  class="form-control" type='text' name="school_description" placeholder="School Description"/>
+            <input  class="form-control" type='text' name="school_place" placeholder="School Place"/>
+            <input  class="form-control" type='number' name="school_phone" placeholder="School Phone Number (without '+')"/>
             @csrf
 
             <button class="btn btn-primary" type='submit'>Add</button>
-            <a class="btn btn-secondary" href="{{route('type.index')}}">Back</a>
+            <a class="btn btn-secondary" href="{{route('school.index')}}">Back</a>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
            
 </body>
 </html>
+
