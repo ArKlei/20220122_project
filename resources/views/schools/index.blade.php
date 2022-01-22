@@ -80,7 +80,7 @@
 </div>
 
     <div class="container">
-    <h1>Schools</h1>
+    <p><h1 style="text-align:center; font-size:50px; color:gold">Schools</h1>
 
 
 @if (session()->has('error_message'))

@@ -79,7 +79,7 @@
   <a href="{{route('school.create')}}" id="create_school">Add School</a>
 </div>
     <div class="container">
-        <h2> {{$type->name}}  </h2>
+    <p><h2 style="text-align:center; font-size:50px; color:gold"> {{$type->name}}  </h2>
             <p>Id : {{$type->id}}</p>
         <p>Name : {{$type->name}}</p>
         <p>Short Name : {{$type->short_name}}</p>

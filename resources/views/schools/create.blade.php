@@ -79,7 +79,7 @@
   <a href="{{route('school.create')}}" id="create_school">Add School</a>
 </div>
     <div class="container">
-        <h1>Create School</h1>
+    <p><h1 style="text-align:center; font-size:50px; color:gold">Create School</h1>
 
         <form method='POST' action='{{route('school.store')}}' >
 
