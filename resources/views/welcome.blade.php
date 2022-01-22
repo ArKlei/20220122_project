@@ -73,7 +73,7 @@
 </div>
 
     <div class="container">
-        <div style="text-align:center; font-size:400px; color:gold">20220122 PROJECT</div>
+        <div style="text-align:center; font-size:400px; color:gold">BIT Student IS</div>
         <p>
         <div style="text-align:center; font-size:50px; color:platinum">Made by BIT alumni</div>
         </div>
