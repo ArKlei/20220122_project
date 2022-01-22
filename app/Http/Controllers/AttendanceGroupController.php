@@ -6,6 +6,8 @@ use App\Models\AttendanceGroup;
 use App\Http\Requests\StoreAttendanceGroupRequest;
 use App\Http\Requests\UpdateAttendanceGroupRequest;
 
+use App\Models\School;
+
 class AttendanceGroupController extends Controller
 {
     /**

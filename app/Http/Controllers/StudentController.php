@@ -6,6 +6,8 @@ use App\Models\Student;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 
+use App\Models\AttendanceGroup;
+
 class StudentController extends Controller
 {
     /**

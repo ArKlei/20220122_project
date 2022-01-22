@@ -21,6 +21,7 @@ class CreateAttendanceGroupsTable extends Migration
             $table->string('difficulty');
             $table->unsignedBigInteger('school_id'); 
             $table->foreign('school_id')->references('id')->on('schools');
+            
             $table->timestamps();
             
         });

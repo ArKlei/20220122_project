@@ -4,6 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+use App\Models\Student;
+use App\Models\AttendaceGroup;
+use App\Models\School;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,6 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            SchoolSeeder::class,
+            AttendanceGroupSeeder::class,
+            StudentSeeder::class
+        ]);
     }
 }
