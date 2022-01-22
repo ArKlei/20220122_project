@@ -17,3 +17,4 @@ Second project based on LARAVEL
 13.Patikriname ar "App>Database>migrations" aplanke atsirado Metai_menuo_diena_numeris_create_pavadinimas(daugiskaita)__table.php failas? Kiekvienam modeliui! 
 14.ĮRAŠYTI Į GITHUB - SU COMMIT KĄ ATLIKAU
 15.Paruošiau iš ankstesnio projekto welcome.blade.php su meniu į 3 modelius
+16.
