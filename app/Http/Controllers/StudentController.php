@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use App\Models\AttendanceGroup;
+use App\Models\School;
+
+
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 
@@ -20,7 +23,9 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        return view('students.index',['students' => $students]);
+        $attendance_groups = AttendanceGroup::all();
+        $schools = School::all();
+        return view('students.index',['students' => $students],['attendance_groups' => $attendance_groups],['schools' => $schools]);
     }
 
     /**
@@ -30,13 +35,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $select_values = array();
-
-        for ($i = 1; $i < 10; $i++) {
-            $select_values[] = $i;
-        }
+        $attendance_group_values = AttendanceGroup::all();
         
-        return view('students.create',['select_values'=>$select_values]);
+        return view('students.create',['attendance_group_values'=>$attendance_group_values]);
 
     }
 
@@ -52,7 +53,7 @@ class StudentController extends Controller
 
         $student->name = $request->student_name;
         $student->surname = $request->student_surname;
-        $student->school_id = $request->student_school_id;
+        $student->group_id = $request->student_group_id;
         $student->image_url = $request->student_image_url;
         
         $student->save();
@@ -83,14 +84,14 @@ class StudentController extends Controller
         // $student = 1
         // $student = {id: 1, name: ..., surname: ...}
 
-        $select_values = AttendanceGroup::all();
+        $attendance_group_values = AttendanceGroup::all();
 
         //$select_values = Array();
         //for ($i = 1; $i < 10; $i++) {
         //    $select_values[] = $i;
         //}
         
-        return view('students.edit',['student' => $student],['select_values'=>$select_values]);
+        return view('students.edit',['student' => $student],['attendance_group_values'=>$attendance_group_values]);
         
     }
 
@@ -107,7 +108,7 @@ class StudentController extends Controller
 
         $student->name = $request->student_name;
         $student->surname = $request->student_surname;
-        $student->school_id = $request->student_school_id;
+        $student->group_id = $request->student_group_id;
         $student->image_url = $request->student_image_url;
 
         $student->save();//UPDATE

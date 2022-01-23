@@ -75,15 +75,12 @@
             <p>
             <input  class="form-control" type='text' name="student_surname" placeholder="Student Surname"/>
             <p>
-            <select class="form-control" name="student_group_id">
-                    <option value="0" class="text-secondary" style="grey">Group ID</option>
-                    <!--@for ($i = 1; $i < 10; $i++)
-                      <option value="{{ $i }}">{{$i}}</option> 
-                    @endfor-->
-                    @foreach ($select_values as $value)
-                      <option value="{{$value}}">{{$value}}</option>
-                    @endforeach      
-            </select>
+            <select class="form-control" name="student_group_id" value=''>
+                     @foreach ($attendance_group_values as $attendance_group)
+                      <option value="{{$attendance_group->id}}">{{$attendance_group->name}}</option>
+                    @endforeach   
+                     
+        </select>
             <p>
             <input  class="form-control" type='text' name="student_image_url" placeholder="Image address (url)"/>
             @csrf

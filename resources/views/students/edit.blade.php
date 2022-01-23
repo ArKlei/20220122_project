@@ -66,42 +66,42 @@
   <a href="{{route('school.create')}}" id="create_school">Add School</a>
 </div>
     <div class="container">
-    <p><h1 style="text-align:center; font-size:50px; color:gold">Edit client's data</h1><p>
+    <p><h1 style="text-align:center; font-size:50px; color:gold">Edit data of </h1><h1 style="text-align:center; font-size:50px; color:black">{{$student->name}} {{$student->surname}}</h1><p>
 
-    <form method='POST' action='{{route('client.update', [$client])}}' >
+    <form method='POST' action='{{route('student.update', [$student])}}' >
         <p>
-        Name: <input class="form-control" type='text' name="client_name" value='{{$client->name}}'/>
+        Name: <input class="form-control" type='text' name="student_name" value='{{$student->name}}'/>
         <p>
-        Surname: <input class="form-control" type='text' name="client_surname" value='{{$client->surname}}'/>
+        Surname: <input class="form-control" type='text' name="student_surname" value='{{$student->surname}}'/>
         <p>
-        Username: <input class="form-control" type='text' name="client_username" value='{{$client->username}}'/>
-        <p>
-        Company_ID: 
-         <select class="form-control" name="client_company_id" value=''>
-                     <!--<option class="text-secondary" value="{{$client->company_id}}">
-                        {{$client->company_id}}</option>; 
-                     @for ($i = 1; $i < 251; $i++)
+        Attendance Group name: 
+         <select class="form-control" name="student_group_id" value=''>
+                     <!--<option class="text-secondary" value="{{$student->group_id}}">
+                        {{$student->group_id}}</option>; 
+                     @for ($i = 1; $i < 10; $i++)
                         <option value="{{ $i }}">{{$i}}</option> 
                      @endfor-->
-                     @foreach ($select_values as $company)
-                      @if ($company->id == $client->company_id)
-                        <option value="{{$company->id}} selected">{{$company->name}}</option>
+                     @foreach ($attendance_group_values as $attendance_group)
+                      @if ($attendance_group->id == $student->group_id)
+                        <option value="{{$attendance_group->id}}" selected>{{$attendance_group->name}}</option>
                       @else
-                        <option value="{{$company->id}}">{{$company->name}}</option>
+                        <option value="{{$attendance_group->id}}">{{$attendance_group->name}}</option>
                       @endif
                     @endforeach   
                      
         </select>
+        
         <p>          
         Image address (url): 
-        <input class="form-control" type='text' name="client_image_url" value='{{$client->image_url}}'/>
+        <input class="form-control" type='text' name="student_image_url" value='{{$student->image_url}}'/>
         @csrf
         <p>
         <button class="btn btn-primary" style="width:100px" type='submit'>Update</button>
-        <a class="btn btn-secondary" style="width:100px"  href="{{route('client.index')}}">Back</a>
+        <a class="btn btn-secondary" style="width:100px"  href="{{route('student.index')}}">Back</a>
     </form> 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
 </html>
+

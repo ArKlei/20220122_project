@@ -66,8 +66,7 @@
 
 
     <div class="container">
-    <p><h1 style="text-align:center; font-size:50px; color:gold">Present students's data</h1><p>
-
+    <p><h1 style="text-align:center; font-size:50px; color:gold">Present students in all groups and schools</h1><p>
 
 
 @if (count($students) == 0)
@@ -79,8 +78,9 @@
     <th>Id</th>
     <th>Name</th>
     <th>Surname</th>
-    <th>Group ID</th>
+    <!--<th>Group ID</th>-->
     <th>Group Name</th>
+    <th>School Name</th>
     <th>Image address (url)</th>
 </tr>
 
@@ -90,8 +90,9 @@
         <td>{{$student->id}}</td>
         <td>{{$student->name}}</td>
         <td>{{$student->surname}}</td>
-        <td>{{$student->group_id}}</td>
-        <td>{{$student->studentAttendanceGroup->name}}
+        <!--<td>{{$student->group_id}}</td>-->
+        <td>{{$student->studentAttendanceGroup->name}}</td>
+        <td>{{$student->studentAttendanceGroup->attendanceGroupSchool->name}}</td>
         <td>{{$student->image_url}}</td>
         <td>
             <a class="btn btn-primary" style="width:100px" href="{{route('student.edit', [$student])}}">Edit</a><p>
