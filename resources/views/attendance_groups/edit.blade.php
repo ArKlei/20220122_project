@@ -66,17 +66,22 @@
   <a href="{{route('school.create')}}" id="create_school">Add School</a>
 </div>
     <div class="container">
-    <p><h1 style="text-align:center; font-size:50px; color:gold">Edit Attendance Groups's data</h1><p>
+    <p><h1 style="text-align:center; font-size:50px; color:gold">Edit data of </h1><h1 style="text-align:center; font-size:30px; color:black">"{{$attendance_group->name}}" at </h1><h1 style="text-align:center; font-size:30px; color:gold">{{$attendance_group->attendanceGroupSchool->name}}</h1><p>
 
     <form method='POST' action='{{route('attendance_group.update', [$attendance_group])}}' >
         <p>
-        Name: <input class="form-control" type='text' name="attendance_group_name" value='{{$attendance_group->name}}'/>
+        Name: <select class="form-control" name="attendance_group_name" value=''>
+                      @foreach ($attendance_groups as $attendance_group)
+                      <option value="{{$attendance_group->name}}">{{$attendance_group->attendanceGroupSchool->name}}: {{$attendance_group->name}}</option>
+                      @endforeach   
+                     
+        </select>
         <p>
         Description: <input class="form-control" type='text' name="attendance_group_description" value='{{$attendance_group->description}}'/>
         <p>
         Difficulty: <input class="form-control" type='text' name="attendance_group_difficulty" value='{{$attendance_group->difficulty}}'/>
         <p>
-        School ID: <input class="form-control" type='number' name="attendance_group_school_id" value='{{$attendance_group->school_id}}'/>
+        School ID of {{$attendance_group->attendanceGroupSchool->name}}: <input class="form-control" type='text' name="attendance_group_school_id" value='{{$attendance_group->school_id}}' readonly />
         <p>
         @csrf
         

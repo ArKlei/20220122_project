@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AttendanceGroup;
+use App\Models\Student;
 use App\Http\Requests\StoreAttendanceGroupRequest;
 use App\Http\Requests\UpdateAttendanceGroupRequest;
 
@@ -28,8 +29,9 @@ class AttendanceGroupController extends Controller
      */
     public function create()
     {
-        
-        return view('attendance_groups.create');
+        $attendance_groups = AttendanceGroup::all();
+       
+        return view('attendance_groups.create',['attendance_groups' => $attendance_groups]);
         
     }
 
@@ -75,7 +77,8 @@ class AttendanceGroupController extends Controller
     {
         // $attendance_group = 1
         // $attendance_group = {id: 1, name: ..., kt: ...}
-        return view('attendance_groups.edit',['attendance_group' => $attendance_group]);
+        $attendance_groups = AttendanceGroup::all();
+        return view('attendance_groups.edit',['attendance_group' => $attendance_group],['attendance_groups' => $attendance_groups]);
     }
 
     /**
@@ -109,8 +112,8 @@ class AttendanceGroupController extends Controller
     {
         
         $attendance_groups = $attendance_group->attendance_groupStudents; // masyvas
-
-        if(count($students) != 0) {
+        $students = Student::all();
+        if(count($attendance_group->attendanceGroupStudents) != 0) {
             return redirect()->route('attendance_group.index')->with('error_message', 'Delete is not possible because attendance group has students');
         }
         

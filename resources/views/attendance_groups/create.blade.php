@@ -76,7 +76,12 @@
             <p>
             <input  class="form-control" type='text' name="attendance_group_difficulty" placeholder="Attendance Group Difficulty (junior, mid, senior)"/>
             <p>
-            <input  class="form-control" type='number' name="attendance_group_school_id" placeholder="Attendance Group School ID"/>
+            <select class="form-control" name="attendance_group_school_id" value='' placeholder="School ID">
+                      @foreach ($attendance_groups as $attendance_group)
+                      <option value="{{$attendance_group->school_id}}">{{$attendance_group->attendanceGroupSchool->name}}</option>
+                      @endforeach   
+                     
+        </select>
             @csrf
             <p>
             <button class="btn btn-primary" style="width:100px" type='submit'>Add</button>

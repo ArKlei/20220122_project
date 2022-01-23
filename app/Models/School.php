@@ -12,4 +12,8 @@ class School extends Model
     public function schoolAttendanceGroups() {
         return $this->hasMany(AttendanceGroup::class, 'school_id', 'id');
     }
+
+    public function attendanceGroupStudents () {
+        return $this->hasMany(Student::class, 'group_id','id');
+    }
 }

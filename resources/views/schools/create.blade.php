@@ -83,14 +83,14 @@
 
         <form method='POST' action='{{route('school.store')}}' >
 
-            <input  class="form-control" type='text' name="school_name" placeholder="School Name"/>
-            <input  class="form-control" type='text' name="school_description" placeholder="School Description"/>
-            <input  class="form-control" type='text' name="school_place" placeholder="School Place"/>
-            <input  class="form-control" type='number' name="school_phone" placeholder="School Phone Number (without '+')"/>
+            <input  class="form-control" type='text' name="school_name" placeholder="School Name"/><p>
+            <p><input  class="form-control" type='text' name="school_description" placeholder="School Description"/><p>
+            <input  class="form-control" type='text' name="school_place" placeholder="School Place"/><p>
+            <input  class="form-control" type='number' name="school_phone" placeholder="School Phone Number (without '+')"/><p>
             @csrf
 
-            <button class="btn btn-primary" type='submit'>Add</button>
-            <a class="btn btn-secondary" href="{{route('school.index')}}">Back</a>
+            <button class="btn btn-primary" style="width:100px" type='submit'>Add</button>
+            <a class="btn btn-secondary" style="width:100px" href="{{route('school.index')}}">Back</a>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

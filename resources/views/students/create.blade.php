@@ -76,8 +76,8 @@
             <input  class="form-control" type='text' name="student_surname" placeholder="Student Surname"/>
             <p>
             <select class="form-control" name="student_group_id" value=''>
-                     @foreach ($attendance_group_values as $attendance_group)
-                      <option value="{{$attendance_group->id}}">{{$attendance_group->name}}</option>
+                    @foreach ($attendance_groups as $value)
+                      <option value="{{$value->id}}">{{$value->attendanceGroupSchool->name}}: {{$value->name}}</option>
                     @endforeach   
                      
         </select>

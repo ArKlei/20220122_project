@@ -35,9 +35,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-        $attendance_group_values = AttendanceGroup::all();
-        
-        return view('students.create',['attendance_group_values'=>$attendance_group_values]);
+        $attendance_groups = AttendanceGroup::all();
+        $schools = School::all();
+        return view('students.create',['attendance_groups' => $attendance_groups],['schools' => $schools]);
 
     }
 
@@ -81,17 +81,11 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {   
-        // $student = 1
-        // $student = {id: 1, name: ..., surname: ...}
-
-        $attendance_group_values = AttendanceGroup::all();
-
-        //$select_values = Array();
-        //for ($i = 1; $i < 10; $i++) {
-        //    $select_values[] = $i;
-        //}
         
-        return view('students.edit',['student' => $student],['attendance_group_values'=>$attendance_group_values]);
+    
+        $attendance_groups = AttendanceGroup::all();
+        $schools = School::all();
+        return view('students.edit',['student' => $student],['attendance_groups' => $attendance_groups]);
         
     }
 

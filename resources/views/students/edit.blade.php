@@ -81,11 +81,11 @@
                      @for ($i = 1; $i < 10; $i++)
                         <option value="{{ $i }}">{{$i}}</option> 
                      @endfor-->
-                     @foreach ($attendance_group_values as $attendance_group)
-                      @if ($attendance_group->id == $student->group_id)
-                        <option value="{{$attendance_group->id}}" selected>{{$attendance_group->name}}</option>
+                     @foreach ($attendance_groups as $value)
+                      @if ($value->id == $student->group_id)
+                        <option value="{{$value->id}}" selected>{{$value->attendanceGroupSchool->name}}: {{$value->name}}</option>
                       @else
-                        <option value="{{$attendance_group->id}}">{{$attendance_group->name}}</option>
+                        <option value="{{$value->id}}">{{$value->attendanceGroupSchool->name}}: {{$value->name}}</option>
                       @endif
                     @endforeach   
                      

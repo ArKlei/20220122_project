@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\School;
+use App\Models\AttendanceGroup;
+use App\Models\Student;
 use App\Http\Requests\StoreSchoolRequest;
 use App\Http\Requests\UpdateSchoolRequest;
 
@@ -18,8 +20,11 @@ class SchoolController extends Controller
      */
     public function index()
     {
+        $students = Student::all();
+        $attendance_groups = AttendanceGroup::all();
         $schools = School::all();
-        return view('schools.index',['schools'=>$schools]);
+        return view('schools.index',['schools'=>$schools],['students' => $students],['attendance_groups' => $attendance_groups]);
+
     }
 
     /**
@@ -61,7 +66,10 @@ class SchoolController extends Controller
      */
     public function show(School $school)
     {
-        return view('schools.show', ['school' => $school]);
+       
+        $attendance_groups = AttendanceGroup::all();
+        
+        return view('schools.show', ['school' => $school],['attendance_groups' => $attendance_groups]);
     }
 
     /**
