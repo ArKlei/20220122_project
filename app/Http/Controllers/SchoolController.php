@@ -12,11 +12,23 @@ use Illuminate\Http\Request;
 
 
 class SchoolController extends Controller
+
 {
+    
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * //@return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -54,7 +66,7 @@ class SchoolController extends Controller
 
         $school->save();
 
-        return redirect()->route('school.index');
+        return redirect()->route('school.index')->with('success_message', 'School added to database');
 
     }
 
@@ -67,9 +79,14 @@ class SchoolController extends Controller
     public function show(School $school)
     {
        
-        $attendance_groups = AttendanceGroup::all();
-        
-        return view('schools.show', ['school' => $school],['attendance_groups' => $attendance_groups]);
+        $students_count = 0;
+        $attendance_groups = $school->schoolAttendanceGroups; //0,1 ir daugiau
+        foreach ($attendance_groups as $group)
+        {
+            $students_count += count($group->attendanceGroupStudents);
+        }
+        // $students = Student::all();
+        return view('schools.show', ['school' => $school,'attendance_groups' => $attendance_groups, 'students_count'=> $students_count]);
     }
 
     /**
@@ -99,7 +116,7 @@ class SchoolController extends Controller
 
         $school->save();
 
-        return redirect()->route('school.index');
+        return redirect()->route('school.index')->with('success_message', 'Data of School updated at the database');
     }
 
     /**

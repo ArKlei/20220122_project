@@ -52,7 +52,7 @@ class AttendanceGroupController extends Controller
         
         $attendance_group->save();
 
-        return redirect()->route('attendance_group.index');
+        return redirect()->route('attendance_group.index')->with('success_message', 'Attendance Group added to database');
 
     }
 
@@ -99,7 +99,7 @@ class AttendanceGroupController extends Controller
         
         $attendance_group->save();//UPDATE
 
-        return redirect()->route('attendance_group.index');
+        return redirect()->route('attendance_group.index')->with('success_message', 'Data of Attendance Group updated at the database');
     }
 
     /**

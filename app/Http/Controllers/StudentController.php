@@ -16,6 +16,23 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -58,7 +75,7 @@ class StudentController extends Controller
         
         $student->save();
 
-        return redirect()->route('student.index');
+        return redirect()->route('student.index')->with('success_message', 'Student added to database');
         
     }
 
@@ -107,7 +124,7 @@ class StudentController extends Controller
 
         $student->save();//UPDATE
 
-        return redirect()->route('student.index');
+        return redirect()->route('student.index')->with('success_message', 'Data of Student updated at the database');
     }
 
     /**

@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 //Pavienis kelias
 Route::get('/', function () {
-    return view('welcome');
-  })->name('main');
+    return view('home');
+  })->name('home');
+
+ 
 
     Route::prefix('students')->group(function() {
     //Index
@@ -68,4 +70,11 @@ Route::get('/', function () {
         Route::get('show/{school}', 'App\Http\Controllers\SchoolController@show')->name('school.show');
   
   });
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/welcome', [App\Http\Controllers\WelcomeController::class, 'index'])->name('welcome');
 
