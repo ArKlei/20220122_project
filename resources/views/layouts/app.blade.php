@@ -37,33 +37,38 @@
   left: 0;
 }
 
-#student {
+#welcome {
   top: 120px;
+  background-color: orange;
+}
+
+#student {
+  top: 180px;
   background-color: #04AA6D;
 }
 
 #create_student {
-  top: 180px;
+  top: 240px;
   background-color: #2196F3;
 }
 
 #attendance_group {
-  top: 240px;
+  top: 300px;
   background-color: #f44336;
 }
 
 #create_attendance_group {
-  top: 300px;
+  top: 360px;
   background-color: #04AA6D;
 }
 
 #school {
-  top: 360px;
+  top: 420px;
   background-color: #2196F3;
 }
 
 #create_school {
-  top: 420px;
+  top: 480px;
   background-color: #f44336;
 }
 </style>

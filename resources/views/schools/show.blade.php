@@ -3,6 +3,7 @@
 @section ('content')
 
 <div id="mySidenav" class="sidenav">
+<a href="{{route('welcome')}}" id="welcome">Main</a>
 <a href="{{route('student.index')}}" id="student">Students</a>
   <a href="{{route('student.create')}}" id="create_student">Add student</a>
   <a href="{{route('attendance_group.index')}}" id="attendance_group">Attendance Groups</a>
@@ -44,7 +45,7 @@
             <p>
             <a class="btn btn-secondary"  style="width:100px" href="{{route('attendance_group.show', [$value])}}">Show</a>
             <p>
-            <form method="post" action='{{route('attendance_group.destroy', [$value])}}''>
+            <form method="post" action='{{route('attendance_group.destroy', [$value])}}'>
                 @csrf
             <p><button class="btn btn-danger"  style="width:100px" type="submit">Delete</button></td>
                 </tr>

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
+
 <div id="mySidenav" class="sidenav">
+  <a href="{{route('welcome')}}" id="welcome">Main</a>
 <a href="{{route('student.index')}}" id="student">Students</a>
   <a href="{{route('student.create')}}" id="create_student">Add student</a>
   <a href="{{route('attendance_group.index')}}" id="attendance_group">Attendance Groups</a>

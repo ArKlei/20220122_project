@@ -20,6 +20,8 @@ Route::get('/', function () {
 
  
 
+ 
+
     Route::prefix('students')->group(function() {
     //Index
     Route::get('', 'App\Http\Controllers\StudentController@index')->name('student.index');
